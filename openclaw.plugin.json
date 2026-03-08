@@ -1,0 +1,22 @@
+{
+  "id": "anspire-search_pro",
+  "name": "Anspire AI Search Pro",
+  "version": "0.1.1",
+  "entry": "./dist/index.js",
+  "skills": ["./skills"],
+  "configSchema": {
+    "type": "object",
+    "properties": {
+      "apiKey": {
+        "type": "string",
+        "description": "Anspire API key"
+      },
+      "baseUrl": {
+        "type": "string",
+        "description": "Anspire API base URL",
+        "default": "https://plugin.anspire.cn"
+      }
+    },
+    "additionalProperties": true
+  }
+}
