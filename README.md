@@ -1,198 +1,218 @@
-# 🔎 Anspire AI Search Pro for OpenClaw
 
-[![OpenClaw Plugin](https://img.shields.io/badge/OpenClaw-Plugin-blue)]()
-[![License](https://img.shields.io/badge/license-MIT-green)]()
-[![Platform](https://img.shields.io/badge/platform-OpenClaw-orange)]()
 
-An OpenClaw plugin that integrates **Anspire AI Search** for real-time web search and external knowledge retrieval.
+# Anspire AI Search Pro for OpenClaw
 
-一个用于 **OpenClaw** 的插件，通过 **Anspire AI Search API** 为 AI Agent 提供 **实时互联网搜索能力**。
+OpenClaw 插件，为 AI Agent 提供 **实时互联网搜索能力**。
 
----
+An OpenClaw plugin that provides **real-time web search capabilities** for AI agents.
 
-# 🌐 中文介绍
+通过 Anspire AI Search，你的 OpenClaw Agent 可以访问 **最新互联网信息、外部知识源，并生成结构化搜索结果**。
 
-**Anspire AI Search Pro** 是一个 OpenClaw 插件，用于为 Agent 提供实时互联网搜索能力。
-
-通过 Anspire AI Search API，Agent 可以：
-
-- 获取最新互联网信息
-- 访问外部知识来源
-- 获取带来源链接的搜索结果
-- 自动调用搜索工具
-
-该插件适用于需要 **最新数据、新闻、互联网资料、外部事实验证** 的 Agent 工作流。
+With Anspire AI Search, your OpenClaw agent can access **up-to-date internet information, external knowledge sources, and structured search results**.
 
 ---
 
-# ✨ 功能
+# ✨ Features | 功能特点
 
-- 🌐 实时互联网搜索
-- 📚 获取外部知识
-- 🔗 返回带来源链接的搜索结果
-- 🤖 专为 OpenClaw Agent 设计
-- ⚡ 支持 `summary` 摘要模式
-- 📦 支持 `raw` 原始数据模式
-- 🧠 Skill 自动提示 Agent 何时调用搜索
+* 🌐 实时互联网搜索
+  Real-time web search
+
+* 📚 外部知识源检索
+  External knowledge retrieval
+
+* 🔗 返回引用来源
+  Source links included
+
+* ⚡ 快速摘要模式
+  Fast summary mode
+
+* 🧠 AI 友好结构化结果
+  LLM-friendly structured results
+
+* 🔌 与 OpenClaw Agent 无缝集成
+  Seamless integration with OpenClaw agents
 
 ---
 
-# 📦 安装
+# 📦 Plugin Information | 插件信息
 
-## 从 zip 安装
+| Item          | Value                |
+| ------------- | -------------------- |
+| Plugin ID     | `anspire-search_pro` |
+| Tool Name     | `anspire_search_pro` |
+| Version       | `0.1.1`              |
+| Compatibility | OpenClaw 2026+       |
+
+---
+
+# 🚀 Installation | 安装
+
+### 使用 npm 安装
+
+Install via npm:
 
 ```bash
-openclaw plugins install ./anspire-search_pro.zip
-openclaw gateway restart
-
-## 从 npm 安装
 openclaw plugins install anspire-search_pro
+```
+
+### 重启 OpenClaw
+
+Restart OpenClaw:
+
+```bash
 openclaw gateway restart
+```
 
-#⚙️ 配置 API Key
+---
 
-设置 Anspire API Key：
+# ⚙️ Configuration | 配置
 
+设置你的 **Anspire API Key**
+
+Set your **Anspire API Key**
+
+```bash
 export ANSPIRE_API_KEY=your_api_key
+```
 
-## 或在 OpenClaw 配置中设置：
+你也可以在系统环境变量中配置。
 
+You can also configure it through your system environment variables.
+
+---
+
+# 🔍 Usage | 使用方式
+
+示例：
+
+Example:
+
+```text
+Use anspire_search_pro to search: OpenClaw latest documentation
+```
+
+示例参数：
+
+Example parameters:
+
+```json
 {
-  "plugins": {
-    "entries": {
-      "anspire-search_pro": {
-        "enabled": true,
-        "config": {
-          "apiKey": "YOUR_API_KEY",
-          "baseUrl": "https://plugin.anspire.cn"
-        }
-      }
-    }
-  }
+  "query": "OpenClaw AI framework",
+  "mode": "summary",
+  "top_k": 5
 }
+```
 
-#🔧 工具
-
-插件会注册以下工具：
-
-anspire_search_pro
-
-用于执行互联网搜索。
-
-参数：
-
-参数	说明
-query	搜索关键词
-top_k	返回结果数量
-mode	summary / raw
-Insite	限定站点
-FromTime	起始时间
-ToTime	结束时间
-🤖 Agent 使用场景
-
-# OpenClaw Agent 在以下情况会自动调用该工具：
-
-查询 最新新闻
-
-获取 当前事件
-
-查找 互联网资料
-
-验证 外部事实
-
-收集 资料来源
-
-# 📁 项目结构
-anspire-search_pro
-├─ dist/
-│  └─ index.js
-├─ skills/
-│  └─ anspire-search_pro/
-│     └─ SKILL.md
-├─ package.json
-├─ openclaw.plugin.json
-└─ README.md
-# 🌎 English
-Overview
-
-Anspire AI Search Pro is an OpenClaw plugin that enables agents to perform real-time web search using the Anspire AI Search API.
-
-It allows AI agents to retrieve:
-
-up-to-date information
-
-external knowledge sources
-
-verifiable web links
-
-Features
-
-Real-time web search
-
-Access to external knowledge
-
-Source links included in results
-
-Designed for OpenClaw agents
-
-Summary and raw result modes
-
-Skill guidance for automatic tool usage
-
-Installation
-Install from zip
-openclaw plugins install ./anspire-search_pro.zip
-openclaw gateway restart
-Install from npm
-openclaw plugins install anspire-search_pro
-openclaw gateway restart
-Tool
-
-Registered tool:
-
-anspire_search_pro
+参数说明：
 
 Parameters:
 
-Parameter	Description
-query	search query
-top_k	number of results
-mode	summary or raw
-Insite	site restriction
-FromTime	start time filter
-ToTime	end time filter
-Example
+| 参数       | 类型            | 说明     |
+| -------- | ------------- | ------ |
+| query    | string        | 搜索关键词  |
+| top_k    | number        | 返回结果数量 |
+| mode     | summary / raw | 返回格式   |
+| Insite   | string        | 限制站点   |
+| FromTime | string        | 起始时间   |
+| ToTime   | string        | 结束时间   |
 
-Example search request:
+---
 
-query: latest AI model release
-top_k: 5
-mode: summary
+# 🌍 Welcome to Anspire AI Open Platform
 
-Example output:
+# 🌍 欢迎使用 Anspire AI 开放平台
 
-1. Title
-Summary
-https://example.com
-2026-03-01
-# Anspire AI Search Pro for OpenClaw
+使用 Anspire AI Search 构建强大的 AI 应用。
 
-An OpenClaw plugin that integrates Anspire AI Search for real-time web search and external knowledge retrieval.
+Build powerful AI applications with **Anspire AI Search APIs**.
 
-## Plugin ID
-anspire-search_pro
+官网 / Official website
 
-## Tool Name
-anspire_search_pro
+[https://open.anspire.cn/](https://open.anspire.cn/)
 
-## Install
+---
 
-openclaw plugins install ./anspire-search_pro.zip
-openclaw gateway restart
+# 🎁 新用户福利 | New User Benefits
 
-## API Key
+完成认证，即可领取 **免费额度**
 
-export ANSPIRE_API_KEY=your_api_key
+Complete verification to receive **free credits**
 
-## Endpoint
-/api/ntsearch/prosearch
+| 用户类型 | 赠送额度     |
+| ---- | -------- |
+| 个人认证 | 2,500 点  |
+| 企业认证 | 10,000 点 |
+
+| User Type               | Free Credits   |
+| ----------------------- | -------------- |
+| Personal Verification   | 2,500 credits  |
+| Enterprise Verification | 10,000 credits |
+
+---
+
+# ⚡ 快速开始 | Quick Start
+
+1️⃣ 登录官网
+
+Visit the official website
+
+[https://open.anspire.cn/](https://open.anspire.cn/)
+
+2️⃣ 完成实名认证
+
+Complete identity verification
+（系统与公安联网，手机号需实名）
+
+(System connected with national identity verification)
+
+3️⃣ 领取额度并开始体验
+
+Claim your credits and start building.
+
+---
+
+# 🏢 企业认证 | Enterprise Verification
+
+企业认证需要提供以下信息：
+
+For enterprise verification please prepare:
+
+* 企业名称
+* 三证合一编号
+* 申请代表人
+* 联系方式
+
+Company name
+Unified social credit code
+Applicant representative
+Contact information
+
+将以上信息提交至平台客服即可。
+
+Submit the above information through platform support.
+
+---
+
+# 📚 Documentation | 文档
+
+产品介绍、API 文档、计费规则：
+
+Product documentation and pricing:
+
+[https://open.anspire.cn/document/docs/searchProduce/#price](https://open.anspire.cn/document/docs/searchProduce/#price)
+
+---
+
+# ⭐ Support | 支持
+
+如果你喜欢这个项目，请给一个 Star。
+
+If you like this project, please give it a ⭐ on GitHub.
+
+---
+
+# 📄 License
+
+MIT License
+
+---
