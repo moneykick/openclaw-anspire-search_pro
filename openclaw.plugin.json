@@ -15,6 +15,15 @@
         "type": "string",
         "description": "Anspire API base URL",
         "default": "https://plugin.anspire.cn"
+      },
+      "tavilyApiKey": {
+        "type": "string",
+        "description": "Tavily API key"
+      },
+      "tavilyBaseUrl": {
+        "type": "string",
+        "description": "Tavily API base URL",
+        "default": "https://api.tavily.com"
       }
     },
     "additionalProperties": true
