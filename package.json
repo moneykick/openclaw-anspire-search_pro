@@ -17,5 +17,8 @@
   },
   "openclaw.extensions": [
     "./dist/index.js"
-  ]
+  ],
+  "optionalDependencies": {
+    "@tavily/core": "^0.0.7"
+  }
 }
